@@ -2,18 +2,20 @@ class Solution {
 public:
     vector<int> plusOne(vector<int>& digits) {
         
-        int carry=0,len=digits.size()-1;
-        for(int i=len;i>=0;i--){
-            
-            digits[i]+=(i==len)?1:carry;
-            carry=digits[i]/10;
-            digits[i]%=10;
+        int n = digits.size();
+    for(int i = n-1; i>=0; i--){
+
+        if(digits[i]<9) {
+
+            digits[i]++;
+            return digits;
+        } else {
+
+            digits[i] = 0;
         }
-        
-        if(carry)
-            
-            digits.insert(digits.begin(),carry);
-        
-        return digits;
+    }
+    vector<int> newArray(n+1 , 0);
+        newArray[0] = 1;
+        return newArray;
     }
 };
